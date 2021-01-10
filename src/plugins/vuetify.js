@@ -9,8 +9,8 @@ export default new Vuetify({
     light: true,
     themes: {
       light: {
-        // primary: "#FF008B",
-        primary: "#00d2d3",
+        primary: "#FF008B",
+        // primary: "#00d2d3",
         // primary: "#1EC9E8",
         warning: "#f53b57",
         error: "#f53b57",

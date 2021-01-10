@@ -2,7 +2,8 @@
   <div class="todo pa-6 pt-0">
     <v-container>
       <v-text-field
-        append-icon="mdi-plus"
+        ref="textfield"
+        append-icon="mdi-plus-circle"
         label="Add Task"
         counter="35"
         clearable
@@ -13,8 +14,8 @@
       </v-text-field>
     </v-container>
 
-    <v-list flat class="pt-0" v-if="tasks.length">
-      <div v-for="task in tasks" :key="task.id">
+    <v-list flat class="pt-0" v-if="$store.state.tasks.length">
+      <div v-for="task in $store.state.tasks" :key="task.id">
         <v-list-item
           @click="completeTask(task.id)"
           :class="{
@@ -51,13 +52,18 @@
       </div>
     </v-list>
     <div v-else>
-      <v-container class="d-flex align-center justify-center  centered-message">
-        <v-avatar class="d-flex primary align-center">
-          <v-icon dark class="mx-2" large> mdi-check</v-icon>
-        </v-avatar>
-        <h1 class=" pa-2  font-weight-regular">
-          No Tasks
-        </h1>
+      <v-container
+        class="d-flex flex-column align-center justify-center  centered-message"
+      >
+        <div class="d-flex align-center">
+          <v-avatar class="d-flex primary align-center">
+            <v-icon dark class="mx-2" large> mdi-check</v-icon>
+          </v-avatar>
+          <h1 class=" pa-2  font-weight-regular">
+            No Tasks
+          </h1>
+        </div>
+        <v-btn color="primary" @click="focus">Add some tasks above...</v-btn>
       </v-container>
     </div>
   </div>
@@ -68,30 +74,23 @@ export default {
   name: "Todo",
   data() {
     return {
-      tasks: [],
+      // tasks: [],
       newTaskTitle: "",
     };
   },
   methods: {
     completeTask(id) {
-      let task = this.tasks.filter((task) => task.id === id)[0];
-      task.done = !task.done;
-
-      // this.tasks.splice(task, 1);
+      this.$store.commit("completeTask", id);
     },
     deleteTask(id) {
-      console.log("task about to be deleted");
-      this.tasks = this.tasks.filter((task) => task.id !== id);
+      this.$store.commit("deleteTask", id);
     },
     addTask() {
-      console.log("Task about to be added");
-      let newTask = {
-        id: Date.now(),
-        task: this.newTaskTitle,
-        done: false,
-      };
-      this.tasks.push(newTask);
+      this.$store.commit("addTask", this.newTaskTitle);
       this.newTaskTitle = "";
+    },
+    focus() {
+      this.$refs.textfield.focus();
     },
   },
 };
