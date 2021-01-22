@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Todo",
+    name: "Todos",
     component: Todo,
   },
   {
@@ -23,6 +23,14 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = `Todo App - ${to.name}`;
+  console.log(from.name, to.name);
+  console.log(process.env.VUE_APP_TITLE);
+
+  next();
 });
 
 export default router;
