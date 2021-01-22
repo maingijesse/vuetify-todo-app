@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Todo from "../views/Todo.vue";
+// import goTo from "vuetify/es5/services/goto";
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,10 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  },
+  mode: "history",
 });
 
 router.beforeEach((to, from, next) => {
@@ -32,5 +37,9 @@ router.beforeEach((to, from, next) => {
 
   next();
 });
+
+// router.afterEach((to, from) => {
+//   goTo(0, { duration: 500 });
+// });
 
 export default router;

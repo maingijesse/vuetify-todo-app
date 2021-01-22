@@ -1,11 +1,20 @@
 <template>
   <div class="todo pa-6 pt-0">
     <add-todo-text-field></add-todo-text-field>
-    <div v-if="$store.state.tasks.length">
+    <div
+      v-if="$store.state.tasks.length"
+      class="fix-scroll  elevation-10 pa-8 "
+    >
       <list-tasks></list-tasks>
     </div>
+
     <div v-else>
       <no-task />
+    </div>
+    <div class="text-center " v-if="$store.state.tasks.length">
+      <v-btn elevation="18" color="secondary ma-4" @click="deleteAllTasks">
+        <v-icon left>mdi-delete</v-icon> Delete All Tasks</v-btn
+      >
     </div>
   </div>
 </template>
@@ -21,5 +30,17 @@ export default {
     ListTasks,
     NoTask,
   },
+  methods: {
+    deleteAllTasks() {
+      console.log("Tasks about to be deleted");
+    },
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.fix-scroll {
+  max-height: 60vh !important;
+  overflow-y: auto;
+}
+</style>

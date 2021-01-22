@@ -48,6 +48,7 @@
       </v-container>
     </v-main>
     <SnackBar />
+
     <footer-component></footer-component>
   </v-app>
 </template>
@@ -66,8 +67,9 @@ export default {
     ],
   }),
   mounted() {
+    this.$store.dispatch("getTasks");
     console.log(
-      "Forget about this console. Hire me or donate sth ... i need to be able to afford a new macbook for learning Swift and iOS app development 😁. maingijesse@gmail.com"
+      "I knew you'd be here. Hire me or just say hi 😁. maingijesse@gmail.com"
     );
   },
   components: {
@@ -77,3 +79,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+#app {
+  scroll-behavior: smooth;
+}
+</style>

@@ -59,7 +59,7 @@ export default {
       this.$store.dispatch("deleteTask", id);
     },
     completeTask(id) {
-      this.$store.commit("completeTask", id);
+      this.$store.dispatch("completeTask", id);
     },
   },
 };

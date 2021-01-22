@@ -7,7 +7,7 @@
 
       <v-divider></v-divider>
 
-      <v-card-text class="white--text text-md--h6 ">
+      <v-card-text class="white--text text-h6 ">
         &copy; {{ new Date().getFullYear() }} — <strong>Jesse Maingi</strong>
       </v-card-text>
     </v-card>

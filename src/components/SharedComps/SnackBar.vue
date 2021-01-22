@@ -5,10 +5,10 @@
       dark
       color="error"
       app
-      rounded="pill"
       elevation="12"
       class="px-4 mb-16"
       absolute
+      timeout="1500"
     >
       {{ $store.state.snackBar.text }}
 
@@ -31,5 +31,3 @@ export default {
   data: () => ({}),
 };
 </script>
-
-<style></style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-h4">{{ date }}</h1>
+    <h1 class="">{{ date }}</h1>
   </div>
 </template>
 

@@ -5,10 +5,12 @@
       <a href="https://maingijesse.github.io">Jesse Maingi</a>
     </h1>
     <p>
-      Created using Vue, Vuex, Vue-Router, Vuetify and Sass. Feel free to reach
-      me on my <a href="mailto:maingijesse@gmail.com">email</a> adress if you
-      have any website project or idea we can work on together 😎.
+      Created using Vue, Vuex, Vue-Router, Vuetify, indexedDB and Sass. Feel
+      free to reach me on my
+      <a href="mailto:maingijesse@gmail.com">email</a> adress if you have any
+      website project or idea we can work on together 😎.
     </p>
+
     <v-rating
       v-model="rating"
       background-color="teal"
