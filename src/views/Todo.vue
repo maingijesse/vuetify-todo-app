@@ -1,9 +1,9 @@
 <template>
-  <div class="todo pa-6 pt-0">
+  <div class="todo pa-md-6 pt-0">
     <add-todo-text-field></add-todo-text-field>
     <div
       v-if="$store.state.tasks.length"
-      class="fix-scroll  elevation-10 pa-8 "
+      class="fix-scroll  elevation-10 pa-md-8 "
     >
       <list-tasks></list-tasks>
     </div>
