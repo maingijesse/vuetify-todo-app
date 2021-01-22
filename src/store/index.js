@@ -15,6 +15,9 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    deleteTasks(state) {
+      state.tasks = [];
+    },
     setSearch(state, value) {
       state.search = value;
     },
@@ -123,6 +126,13 @@ export default new Vuex.Store({
         .get()
         .then((tasks) => {
           commit("setTasks", tasks);
+        });
+    },
+    deleteAllTasks({ commit }) {
+      db.collection("tasks")
+        .delete()
+        .then(() => {
+          commit("deleteTasks");
         });
     },
   },

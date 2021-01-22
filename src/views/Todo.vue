@@ -11,7 +11,11 @@
     <div v-else>
       <no-task />
     </div>
-    <div class="text-center " v-if="$store.state.tasks.length">
+    <div
+      class="text-center "
+      v-if="$store.state.tasks.length > 5"
+      @click="$store.dispatch('deleteAllTasks')"
+    >
       <v-btn elevation="18" color="secondary ma-4" @click="deleteAllTasks">
         <v-icon left>mdi-delete</v-icon> Delete All Tasks</v-btn
       >
