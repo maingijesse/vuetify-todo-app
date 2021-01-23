@@ -13,10 +13,10 @@
     </div>
     <div
       class="text-center "
-      v-if="$store.state.tasks.length > 5"
+      v-if="$store.state.tasks.length > 3"
       @click="$store.dispatch('deleteAllTasks')"
     >
-      <v-btn elevation="18" color="secondary ma-4" @click="deleteAllTasks">
+      <v-btn elevation="18" color="secondary ma-4">
         <v-icon left>mdi-delete</v-icon> Delete All Tasks</v-btn
       >
     </div>
@@ -33,11 +33,6 @@ export default {
     AddTodoTextField,
     ListTasks,
     NoTask,
-  },
-  methods: {
-    deleteAllTasks() {
-      console.log("Tasks about to be deleted");
-    },
   },
 };
 </script>
